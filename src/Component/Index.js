@@ -94,8 +94,6 @@ export default function Index() {
   function handleToEditTask(e, item) {
     e.preventDefault();
     let index = listTask.indexOf(item);
-    console.log(index);
-    console.log(item);
     item.title = editTask;
     item.flag = true;
     fetch(`https://jsonplaceholder.typicode.com/todos/${item.id}`, {
@@ -107,7 +105,6 @@ export default function Index() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         let result = data;
         listTask[index] = result;
         setlist([...listTask]);
